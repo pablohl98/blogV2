@@ -1,7 +1,12 @@
 <h2> Añadir Articulo al Blog </h2>
 
 <%= form_with model: @article do |form| %>
-    <div>
+    <% @article.errors.full_messages.each do |error| %>
+        <div>
+        <%= error %>
+        </div>
+    <% end %>
+    <div style="margin-top: 5px;">
     <%= form.label :title %>
     <%= form.text_field :title %>
     </div>
@@ -13,7 +18,7 @@
     <%= form.label :author %>
     <%= form.text_field :author %>
     </div>
-    <div>
+    <div style="margin-bottom: 5px;">
     <%= form.label :category %>
     <%= form.text_field :category %>
     </div>
