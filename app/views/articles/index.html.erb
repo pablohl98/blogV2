@@ -1,0 +1,9 @@
+<h1 align= center>Articulos</h1>
+<hr>
+
+<% @articles.each do |article| %>
+    <h2 style="margin-top: -8px;"><%=  article.title%></h2>
+    <h4><%=  article.content%></h4>
+    <span><%=  article.author%></span>
+    <hr>
+<% end %>
