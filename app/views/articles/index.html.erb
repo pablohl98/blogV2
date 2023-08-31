@@ -2,8 +2,10 @@
 <hr>
 
 <% @articles.each do |article| %>
-    <h2 style="margin-top: -8px;"><%=  article.title%></h2>
+    <%= link_to article_path(article.id) do %>
+        <h2 style="margin-top: -8px;"><%=  article.title%></h2>
+    <% end %>
     <h4><%=  article.content%></h4>
     <span><%=  article.author%></span>
-    <hr>
+    <hr>    
 <% end %>
