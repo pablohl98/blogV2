@@ -6,6 +6,9 @@
         <h2 style="margin-top: -8px;"><%=  article.title%></h2>
     <% end %>
     <h4><%=  article.content%></h4>
-    <span><%=  article.author%></span>
+    <span>
+    <%=  article.author%> - 
+    <%= article.updated_at.strftime('%d/%m/%Y') %>
+    </span>
     <hr>    
 <% end %>

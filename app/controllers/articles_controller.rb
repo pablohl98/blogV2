@@ -16,12 +16,13 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_params)
 
         if @article.save
-            redirect_to '/articles'
+            redirect_to '/articles', notice: 'Tu producto se ha creado correctamente'
         else
             render :new, status: :unprocessable_entity
         end
-
-
+    end
+    def edit
+        @article = Article.find(params[:id])
     end
 
     private
