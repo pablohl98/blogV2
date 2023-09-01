@@ -36,6 +36,12 @@ class ArticlesController < ApplicationController
 
     end
 
+    def destroy
+        @article = Article.find(params[:id])
+        @article.destroy
+        redirect_to '/articles', notice: 'Tu producto se ha eliminado correctamente', status: :see_other
+    end
+
     private
     def article_params
         params.require(:article).permit(:title, :content, :author, :category)

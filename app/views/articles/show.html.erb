@@ -6,4 +6,5 @@
 </span>
 <b><div style="margin-top: 19px;">
 <%= link_to 'Editar Articulo', edit_article_path(@article)%>
+<%= link_to 'Eliminar Articulo', article_path(@article), data: { turbo_method: :delete, turbo_confirm: 'Estas seguro?' } %>
 </div></b> 

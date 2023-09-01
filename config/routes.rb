@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  delete '/articles/:id', to: 'articles#destroy'
   patch '/articles/:id', to: 'articles#update'
   post '/articles', to: 'articles#create' 
   get '/articles/new', to: 'articles#new', as: :new_article
