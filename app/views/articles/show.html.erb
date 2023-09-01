@@ -1,5 +1,10 @@
 <h1> <%= @article.title %> </h1>
 <h3> <%= @article.content %> </h3>
+<div>
+    <% if @article.image.present? %>
+    <%= image_tag @article.image.url, size: "250x250" %>
+    <% end %>
+</div>
 <span>
     <%=  @article.author%> - 
     <%= @article.updated_at.strftime('%d/%m/%Y') %>
