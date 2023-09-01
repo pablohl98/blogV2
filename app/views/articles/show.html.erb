@@ -1,3 +1,9 @@
 <h1> <%= @article.title %> </h1>
 <h3> <%= @article.content %> </h3>
-<span> <%= @article.author %> </span>
+<span>
+    <%=  @article.author%> - 
+    <%= @article.updated_at.strftime('%d/%m/%Y') %>
+</span>
+<b><div style="margin-top: 19px;">
+<%= link_to 'Editar Articulo', edit_article_path(@article)%>
+</div></b> 
