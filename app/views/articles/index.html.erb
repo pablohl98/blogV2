@@ -1,5 +1,16 @@
 <h1 align= center style="margin-top: -8px;">Articulos</h1>
+
+<%= link_to 'Todos', articles_path %>
+
+<% @categories.each do |category| %>
+  <%= link_to articles_path(category_id: category.id) do %>
+    <%= category.name %>
+  <% end %>
+<% end %>
+
+
 <hr>
+
 
 <% @articles.each do |article| %>
     <%= link_to article_path(article.id) do %>
