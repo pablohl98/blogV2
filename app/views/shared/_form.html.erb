@@ -14,7 +14,7 @@
     </div>
     <div>
     <%= form.label :author, "Autor" %>
-    <%= form.text_field :author %>
+    <%= form.collection_select :author_id, Author.all.order(name: :asc), :id, :name %>
     </div>
     <div style="margin-bottom: 5px;">
     <%= form.label :category, "Categoría" %>
