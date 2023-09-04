@@ -1,0 +1,11 @@
+
+
+<h1>Autores</h1>
+
+<div id="authors">
+  <% @authors.each do |author| %>
+    <%= render author %>
+  <% end %>
+</div>
+
+<%= link_to "Nuevo Autor", new_author_path %>

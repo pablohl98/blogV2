@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_153330) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_04_163211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_153330) do
     t.string "title", null: false
     t.text "content", null: false
     t.string "author", null: false
-    t.string "category", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -27,6 +26,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_153330) do
     t.datetime "image_updated_at"
     t.bigint "category_id", null: false
     t.index ["category_id"], name: "index_articles_on_category_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
