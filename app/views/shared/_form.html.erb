@@ -5,25 +5,25 @@
         </div>
     <% end %>
     <div style="margin-top: 5px;">
-    <%= form.label :title %>
+    <%= form.label :title, "Título" %>
     <%= form.text_field :title, style: "width: 418px;" %>
     </div>
     <div>
-    <%= form.label :content %>
+    <%= form.label :content, "Contenido" %>
     <%= form.text_area :content, style: "width: 418px; height: 168px;" %>
     </div>
     <div>
-    <%= form.label :author %>
+    <%= form.label :author, "Autor" %>
     <%= form.text_field :author %>
     </div>
     <div style="margin-bottom: 5px;">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.label :category, "Categoría" %>
+    <%= form.collection_select :category_id, Category.all.order(name: :asc), :id, :name %>
     </div>
     <div>
-    <%= form.label :image %>
+    <%= form.label :image, "Imagen" %>
     <%= form.file_field :image %>
     </div>
-    <%= form.submit %>
+    <%= form.submit "Guardar" %>
 
 <% end %>
