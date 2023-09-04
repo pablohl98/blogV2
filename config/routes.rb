@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories, except: :show
+  root 'articles#index'
   delete '/articles/:id', to: 'articles#destroy'
   patch '/articles/:id', to: 'articles#update'
   post '/articles', to: 'articles#create' 
