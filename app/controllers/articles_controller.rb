@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
     def index
-        @authors = Author.order(name: :asc)
-        @categories = Category.order(name: :asc)
-        @articles = Article.all.order(updated_at: :desc)
+        @authors = Author.order(name: :asc).load_async
+        @categories = Category.order(name: :asc).load_async
+        @articles = Article.all.order(updated_at: :desc).load_async
         
         if params[:category_id]
           @articles = @articles.where(category_id: params[:category_id])
@@ -14,6 +14,9 @@ class ArticlesController < ApplicationController
             start_date = Date.parse(params[:start_date])
             end_date = Date.parse(params[:end_date]) + 1.day 
             @articles = @articles.where('updated_at >= ? AND updated_at <= ?', start_date, end_date)
+        end
+        if params[:query_text].present?
+            @articles = @articles.search_full_text(params[:query_text])
         end    
     end
     

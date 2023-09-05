@@ -2,7 +2,6 @@
 .filter {
   display: flex; /* Muestra los elementos en una línea */
   align-items: center; /* Centra verticalmente los elementos */
-  margin-bottom: 10px; /* Agrega margen inferior para separar de otros elementos */
 }
 
 .date-filter {
@@ -38,6 +37,15 @@
     <span>a</span>
     <%= form.date_field :end_date, placeholder: 'Fecha final', value: (params[:end_date] || Date.current), class: 'date-input' %>
     <%= form.submit 'Filtrar por Fecha' %>
+    <%= link_to '  Borrar Filtros', articles_path %>
+  <% end %>
+</div>
+
+<div class="filter">
+  <span style="margin-right: 10px;"><b>Busqueda por texto</b></span>
+  <%= form_with url: articles_path,method: :get do |form| %>
+  <%= form.text_field :query_text, placeholder: 'Texto a buscar',value: params[:query_text]%>
+    <%= form.submit 'Filtrar por Texto' %>
     <%= link_to '  Borrar Filtros', articles_path %>
   <% end %>
 </div>
