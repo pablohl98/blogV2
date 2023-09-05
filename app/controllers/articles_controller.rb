@@ -10,8 +10,13 @@ class ArticlesController < ApplicationController
         elsif params[:author_id]
           @articles = @articles.where(author_id: params[:author_id])
         end
-      end
-
+        if params[:start_date].present? && params[:end_date].present?
+            start_date = Date.parse(params[:start_date])
+            end_date = Date.parse(params[:end_date]) + 1.day 
+            @articles = @articles.where('updated_at >= ? AND updated_at <= ?', start_date, end_date)
+        end    
+    end
+    
     def show
         @article = Article.find(params[:id])
     end

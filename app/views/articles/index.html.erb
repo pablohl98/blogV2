@@ -1,16 +1,45 @@
+<style>
+.filter {
+  display: flex; /* Muestra los elementos en una línea */
+  align-items: center; /* Centra verticalmente los elementos */
+  margin-bottom: 10px; /* Agrega margen inferior para separar de otros elementos */
+}
+
+.date-filter {
+  display: flex; /* Alinea los campos de entrada en línea */
+}
+
+.date-input {
+  margin-right: 10px; /* Espacio entre los campos de fecha */
+}
+
+.filter-button {
+  margin-top: 0; /* Ajusta el margen superior del botón si es necesario */
+}
+</style>
 <h1 align="center" style="margin-top: -8px;">Articulos</h1>
 <div>
   <span><b>Filtrado por categorías</b></span>
   <% categories = @categories.map { |category| link_to(category.name, articles_path(category_id: category.id)) } %>
   <%= categories.join(' - ').html_safe %>
-  <%= link_to ' - Todos los Artículos', articles_path %>
+  <%= link_to ' - Borrar Filtros', articles_path %>
 </div>
 
 <div>
   <span><b>Filtrado por autores</b></span>
   <% authors_links = @authors.map { |author| link_to(author.name, articles_path(author_id: author.id)) } %>
   <%= authors_links.join(' - ').html_safe %>
-  <%= link_to ' - Todos los Artículos', articles_path %>
+  <%= link_to ' - Borrar Filtros', articles_path %>
+</div>
+<div class="filter">
+  <span style="margin-right: 10px;"><b>Filtrado por fecha</b></span>
+  <%= form_with url: articles_path,method: :get do |form| %>
+    <%= form.date_field :start_date, placeholder: 'Fecha inicial',value: params[:start_date]%>
+    <span>a</span>
+    <%= form.date_field :end_date, placeholder: 'Fecha final', value: (params[:end_date] || Date.current), class: 'date-input' %>
+    <%= form.submit 'Filtrar por Fecha' %>
+    <%= link_to '  Borrar Filtros', articles_path %>
+  <% end %>
 </div>
 
 
