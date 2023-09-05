@@ -3,33 +3,36 @@
   display: flex; /* Muestra los elementos en una línea */
   align-items: center; /* Centra verticalmente los elementos */
 }
-
 .date-filter {
   display: flex; /* Alinea los campos de entrada en línea */
 }
-
 .date-input {
   margin-right: 10px; /* Espacio entre los campos de fecha */
 }
-
 .filter-button {
   margin-top: 0; /* Ajusta el margen superior del botón si es necesario */
 }
+.pagination-container {
+  text-align: center;
+}
+
 </style>
 <h1 align="center" style="margin-top: -8px;">Articulos</h1>
 <div>
+<%# Aqui empieza el ciclo que filtra por categorias%>
   <span><b>Filtrado por categorías</b></span>
   <% categories = @categories.map { |category| link_to(category.name, articles_path(category_id: category.id)) } %>
   <%= categories.join(' - ').html_safe %>
   <%= link_to ' - Borrar Filtros', articles_path %>
 </div>
-
+<%# Aqui empieza el ciclo que filtra por autores%>
 <div>
   <span><b>Filtrado por autores</b></span>
   <% authors_links = @authors.map { |author| link_to(author.name, articles_path(author_id: author.id)) } %>
   <%= authors_links.join(' - ').html_safe %>
   <%= link_to ' - Borrar Filtros', articles_path %>
 </div>
+<%# Aqui empieza el ciclo que busca entre fechas%>
 <div class="filter">
   <span style="margin-right: 10px;"><b>Filtrado por fecha</b></span>
   <%= form_with url: articles_path,method: :get do |form| %>
@@ -40,20 +43,17 @@
     <%= link_to '  Borrar Filtros', articles_path %>
   <% end %>
 </div>
-
-<div class="filter">
-  <span style="margin-right: 10px;"><b>Busqueda por texto</b></span>
+<%# Aqui empieza el ciclo que busca por texto%>
+<div class="filter" style="margin-top: 2px;">
+  <span style="margin-right: 10px;margin-top: 2px;"><b>Busqueda por texto</b></span>
   <%= form_with url: articles_path,method: :get do |form| %>
   <%= form.text_field :query_text, placeholder: 'Texto a buscar',value: params[:query_text]%>
     <%= form.submit 'Filtrar por Texto' %>
     <%= link_to '  Borrar Filtros', articles_path %>
   <% end %>
 </div>
-
-
 <hr>
-
-
+<%# Aqui empieza el ciclo que despliega todos los articulos%>
 <% @articles.each do |article| %>
     <%= link_to article_path(article.id) do %>
         <h2 style="margin-top: -8px;"><%=  article.title%></h2>
@@ -71,3 +71,10 @@
     </span>
     <hr>    
 <% end %>
+<div class="pagination-container">
+<%= pagy_nav(@pagy).html_safe %>
+</div>
+
+
+
+

@@ -17,7 +17,8 @@ class ArticlesController < ApplicationController
         end
         if params[:query_text].present?
             @articles = @articles.search_full_text(params[:query_text])
-        end    
+        end
+        @pagy, @articles = pagy_countless(@articles, items: 6)
     end
     
     def show
