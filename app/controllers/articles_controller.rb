@@ -1,14 +1,17 @@
 class ArticlesController < ApplicationController
 
     def index
+    @authors = Author.order(name: :asc).load_async
     @categories = Category.order(name: :asc).load_async
     @articles = Article.all.order(updated_at: :desc).load_async
     if params[:category_id]
         @articles = @articles.where(category_id: params[:category_id])
     else
-        
+    if params[:author_id]
+        @articles = @articles.where(author_id: params[:author_id])
+    else    
     end
-    
+    end
     
     
     

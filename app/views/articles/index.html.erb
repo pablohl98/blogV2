@@ -1,13 +1,21 @@
 <h1 align= center style="margin-top: -8px;">Articulos</h1>
-
-<%= link_to 'Todos', articles_path %>
-
+<div>
+<%= link_to 'Todos los Artículos', articles_path %>
 <% @categories.each do |category| %>
   <%= link_to articles_path(category_id: category.id) do %>
     <%= category.name %>
   <% end %>
 <% end %>
+</div>
+<div>
+<%= link_to 'Todos los Artículos', articles_path %>
+<% @authors.each do |author| %>
+  <%= link_to articles_path(author_id: author.id) do %>
+    <%= author.name %>
+  <% end %>
+<% end %>
 
+</div>
 
 <hr>
 
