@@ -1,21 +1,18 @@
-<h1 align= center style="margin-top: -8px;">Articulos</h1>
+<h1 align="center" style="margin-top: -8px;">Articulos</h1>
 <div>
-<%= link_to 'Todos los Artículos', articles_path %>
-<% @categories.each do |category| %>
-  <%= link_to articles_path(category_id: category.id) do %>
-    <%= category.name %>
-  <% end %>
-<% end %>
+  <span><b>Filtrado por categorías</b></span>
+  <% categories = @categories.map { |category| link_to(category.name, articles_path(category_id: category.id)) } %>
+  <%= categories.join(' - ').html_safe %>
+  <%= link_to ' - Todos los Artículos', articles_path %>
 </div>
-<div>
-<%= link_to 'Todos los Artículos', articles_path %>
-<% @authors.each do |author| %>
-  <%= link_to articles_path(author_id: author.id) do %>
-    <%= author.name %>
-  <% end %>
-<% end %>
 
+<div>
+  <span><b>Filtrado por autores</b></span>
+  <% authors_links = @authors.map { |author| link_to(author.name, articles_path(author_id: author.id)) } %>
+  <%= authors_links.join(' - ').html_safe %>
+  <%= link_to ' - Todos los Artículos', articles_path %>
 </div>
+
 
 <hr>
 

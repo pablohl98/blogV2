@@ -1,8 +1,9 @@
-<div id="<%= dom_id author %>">
-  <p>
-    <%= author.name %>
-    <%= link_to 'Editar Autor', edit_author_path(author) %>
-    <%= link_to 'Eliminar Autor', author_path(author), data: { turbo_method: :delete, turbo_confirm: 'Estas seguro?' } %> 
-  </p>
+<tr id="<%= dom_id author %>">
+  <td><%= author.id %></td>
+  <td><%= author.name %></td>
+  <td>
+    <%= link_to 'Editar Autor - ', edit_author_path(author) %>
+    <%= link_to 'Eliminar Autor', author_path(author), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro?' } %> 
+  </td>
+</tr>
 
-</div>

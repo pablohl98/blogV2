@@ -1,11 +1,24 @@
-
-
+<style>
+table, th, td {
+  border: 3px solid #488214	;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
 <h1>Categorías</h1>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-  <% end %>
-</div>
+<table style="width:50%; margin-bottom: 10px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %> <!-- Aquí renderizamos el parcial _category.html.erb para cada categoría -->
+  </tbody>
+</table>
 
 <%= link_to "Nueva Categoría", new_category_path %>
+

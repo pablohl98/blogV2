@@ -1,11 +1,25 @@
-
-
+<style>
+table, th, td {
+  border: 3px solid #488214	;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
 <h1>Autores</h1>
-
-<div id="authors">
-  <% @authors.each do |author| %>
-    <%= render author %>
-  <% end %>
-</div>
+<table style="width:50%; margin-bottom: 10px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <%= render author %>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "Nuevo Autor", new_author_path %>
+
