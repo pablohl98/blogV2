@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_params)
 
         if @article.save
-            redirect_to '/articles', notice: 'Tu producto se ha creado correctamente'
+            redirect_to '/articles', notice: 'Tu Artículo se ha publicado correctamente'
         else
             render :new, status: :unprocessable_entity
         end
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id])
         if @article.update(article_params)
-            redirect_to '/articles', notice: 'Tu producto se ha actualizado correctamente'
+            redirect_to '/articles', notice: 'Tu Artículo se ha actualizado correctamente'
 
         else
             render :edit, status: :unprocessable_entity
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
     def destroy
         @article = Article.find(params[:id])
         @article.destroy
-        redirect_to '/articles', notice: 'Tu producto se ha eliminado correctamente', status: :see_other
+        redirect_to '/articles', notice: 'Tu Artículo se ha eliminado correctamente', status: :see_other
     end
 
     private

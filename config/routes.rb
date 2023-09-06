@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/articles/:id', to: 'articles#show', as: :article
   get '/articles/:id/edit', to: 'articles#edit', as: :edit_article 
 
-
+  namespace :authentication,path: '', as: '' do
+    resources :users, only: [:new,:create]
+  end
 
 end

@@ -4,3 +4,68 @@ es:
       prev: "Anterior"
       next: "Siguiente"
 
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              too_short: "es demasiado corto (mínimo %{count} caracteres)"
+
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              invalid: "no es válido, debe contener solo letras y numeros"
+
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              too_short: "es demasiado corto (mínimo %{count} caracteres)"
+
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: "es demasiado corta (mínimo %{count} caracteres)"
+
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              too_long: "es demasiado larga (máximo %{count} caracteres)"
+              
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "email ya está en uso"
+
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              taken: "ya está en uso"
+              too_long: "es demasiado largo (máximo %{count} caracteres)"
+              invalid: "es inválido"
+              too_short: "es demasiado corta (mínimo %{count} caracteres)"
