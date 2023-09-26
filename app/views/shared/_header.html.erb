@@ -1,9 +1,41 @@
-<%= link_to '/articles' do %>
-    <h1> Mi Blog... </h1>
-<% end %>    
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="<%= articles_path %>">
+        <h1 class="blog-title"> Mi Blog... </h1>
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Añadir Articulo', new_article_path, class: "nav-link active header-link", "aria-current" => "page" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Ver Categorías', categories_path, class: "nav-link header-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Ver Autores', authors_path, class: "nav-link header-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<%= link_to 'Añadir Articulo', new_article_path %>
-<span> - </span>
-<%= link_to 'Ver Categorías', categories_path %>
-<span> - </span>
-<%= link_to 'Ver Autores', authors_path %>
+
+
+<!--
+<nav class="header">
+  <%= link_to '/articles' do %>
+    <h1 class="blog-title"> Mi Blog... </h1>
+  <% end %>
+  
+  <%= link_to 'Añadir Articulo', new_article_path, class: "header-link" %>
+  <span class="header-divider"> - </span>
+  <%= link_to 'Ver Categorías', categories_path, class: "header-link" %>
+  <span class="header-divider"> - </span>
+  <%= link_to 'Ver Autores', authors_path, class: "header-link" %>
+</nav>
+-->
+
+
